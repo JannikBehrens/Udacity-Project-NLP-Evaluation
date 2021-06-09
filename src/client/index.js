@@ -1,4 +1,4 @@
-import { checkForName } from './js/nameChecker'
+
 import { handleSubmit } from './js/formHandler'
 import { checkText } from './js/formHandler'
 import { getKey } from './js/formHandler'
@@ -12,7 +12,7 @@ import './styles/header.scss'
 
 // Export all js from index.js to the Client library
 export {
-    checkForName,
+    
     handleSubmit, 
     checkText,    
     getKey,

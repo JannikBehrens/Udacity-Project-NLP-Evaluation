@@ -17,7 +17,7 @@ function handleSubmit(e) {
         const score_tag = data.score_tag;
         console.log("Score :" , score_tag)
         // transform the score_tag
-        score = ""
+        let score = "str";
         switch(score_tag){
         case "P+":
             score = "Strong Positive";
@@ -39,11 +39,13 @@ function handleSubmit(e) {
             break;
         default:
             score = "Test for polarity failed"
-        }
+        };
         // Update UI
         document.getElementById('result').innerHTML=`Confidence of the analysis (0-100): ${confidence}`;
         document.getElementById('objectivity').innerHTML=`Subjectivity: ${subjectivity}`;
+        debugger
         document.getElementById('score').innerHTML=`Polarity Score: ${score}`;
+        debugger
         
         })});
     } else {
@@ -77,7 +79,7 @@ function handleSubmit(e) {
            
             return apiKey
             } catch(error){
-            console.log('Error in updateUI: ', error)
+            console.log('Error in getKey: ', error)
             }}
 
    
