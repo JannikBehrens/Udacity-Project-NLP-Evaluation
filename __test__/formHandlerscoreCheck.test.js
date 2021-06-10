@@ -24,7 +24,7 @@ describe('Testing polarity score conversion', () => {
     })
 
     test('Testing scoreCheck() for NONE', () => {
-        expect(scoreCheck('NONE')).toBe('Test for polarity failed')
+        expect(scoreCheck('NONE')).toBe('Without Polarity')
     })
 
     
