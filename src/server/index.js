@@ -8,12 +8,13 @@ const mockAPIResponse = require('./mockAPI.js')
 //declare API credentials
 const apiKey = {key: process.env.API_KEY};
 //const url = "https://api.meaningcloud.com/sentiment-2.1?key=";
+const cors = require('cors');
 
 
 const app = express()
 
 app.use(express.static('dist'))
-
+app.use(cors());
 console.log(__dirname)
 
 app.get('/', function (req, res) {

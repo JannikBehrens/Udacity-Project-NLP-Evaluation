@@ -1,6 +1,6 @@
 function handleSubmit(e) {
     e.preventDefault()
-  
+    
     const apiUrl = "https://api.meaningcloud.com/sentiment-2.1?key="
     // check what text was put into the form field
     const inputUrl = document.getElementById('name').value
@@ -9,6 +9,7 @@ function handleSubmit(e) {
     .then(function(key){
         
     Client.checkText(apiUrl, key.key, inputUrl)
+    
     .then(function(data){
         const confidence = data.confidence;
         console.log("Confidence: ",confidence)
@@ -43,11 +44,11 @@ function handleSubmit(e) {
         // Update UI
         document.getElementById('result').innerHTML=`Confidence of the analysis (0-100): ${confidence}`;
         document.getElementById('objectivity').innerHTML=`Subjectivity: ${subjectivity}`;
-        debugger
-        document.getElementById('score').innerHTML=`Polarity Score: ${score}`;
-        debugger
         
-        })});
+        document.getElementById('score').innerHTML=`Polarity Score: ${score}`;
+        
+        
+        })})
     } else {
         console.log('Please use a valid url');
         alert('Please use a valid url')
@@ -72,11 +73,22 @@ function handleSubmit(e) {
     }
     
     const getKey = async () => {
-        const request = await fetch('/all');
+        const request = await fetch('http://localhost:8081/all',
+    //{
+     //   mode: "no-cors",
+    //    headers: {
+     //       "Content-Type": "application/json",
+     //       "Access-Control-Allow-Origin": "*"
+    //    },
         
+        
+    //}
+    );
+        console.log(request)
+        debugger
         try {
             const apiKey = await request.json();
-           
+            console.log(apiKey)
             return apiKey
             } catch(error){
             console.log('Error in getKey: ', error)
