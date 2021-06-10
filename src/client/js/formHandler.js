@@ -18,29 +18,8 @@ function handleSubmit(e) {
         const score_tag = data.score_tag;
         console.log("Score :" , score_tag)
         // transform the score_tag
-        let score = "str";
-        switch(score_tag){
-        case "P+":
-            score = "Strong Positive";
-            break
-        case "P":
-            score = "Positive";
-            break;
-        case "NEU":
-            score = "Neutral";
-            break;
-        case "N":
-            score = "Negative";
-            break;
-        case "N+":
-            score = "Strong Negative";
-            break;
-        case "None":
-            score = "Without Polarity";
-            break;
-        default:
-            score = "Test for polarity failed"
-        };
+        const score = Client.scoreCheck(score_tag)
+        
         // Update UI
         document.getElementById('result').innerHTML=`Confidence of the analysis (0-100): ${confidence}`;
         document.getElementById('objectivity').innerHTML=`Subjectivity: ${subjectivity}`;
@@ -90,9 +69,37 @@ function handleSubmit(e) {
         } catch(error){
             console.log('Error in getKey: ', error)
             }}
+            
+        const scoreCheck = (score_tag) => {
+            let score = "str";
+            switch(score_tag){
+            case "P+":
+                score = "Strong Positive";
+                break
+            case "P":
+                score = "Positive";
+                break;
+            case "NEU":
+                score = "Neutral";
+                break;
+            case "N":
+                score = "Negative";
+                break;
+            case "N+":
+                score = "Strong Negative";
+                break;
+            case "None":
+                score = "Without Polarity";
+                break;
+            default:
+                score = "Test for polarity failed"
+            }
+        return score
+    };
 
    
 export { handleSubmit }
 export { checkText }
 export { getKey }
+export {scoreCheck}
 

@@ -2,6 +2,7 @@
 import { handleSubmit } from './js/formHandler'
 import { checkText } from './js/formHandler'
 import { getKey } from './js/formHandler'
+import { scoreCheck } from './js/formHandler'
 import { validateUrl } from './js/nameChecker'
 
 import './styles/resets.scss'
@@ -16,5 +17,6 @@ export {
     handleSubmit, 
     checkText,    
     getKey,
-    validateUrl
+    validateUrl,
+    scoreCheck
 }
