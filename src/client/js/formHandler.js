@@ -88,7 +88,7 @@ function handleSubmit(e) {
             case "N+":
                 score = "Strong Negative";
                 break;
-            case "None":
+            case "NONE":
                 score = "Without Polarity";
                 break;
             default:
