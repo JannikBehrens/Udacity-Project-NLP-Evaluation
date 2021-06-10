@@ -79,27 +79,19 @@ function handleSubmit(e) {
     //    headers: {
      //       "Content-Type": "application/json",
      //       "Access-Control-Allow-Origin": "*"
-    //    },
-        
-        
+    //    },        
     //}
     );
-        console.log(request)
-        debugger
+        //console.log(request)
         try {
             const apiKey = await request.json();
-            console.log(apiKey)
+            //console.log(apiKey)
             return apiKey
-            } catch(error){
+        } catch(error){
             console.log('Error in getKey: ', error)
             }}
 
    
-
-
-
-
-
 export { handleSubmit }
 export { checkText }
 export { getKey }
